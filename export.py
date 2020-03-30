@@ -42,14 +42,14 @@ for s, sheet in enumerate(doc.worksheets()):
 
             tree = etree.ElementTree(resources)
             res_filename = res_path.joinpath(f"{sheet.title}.xml")
-            print(f"Writing {lang} to {res_filename}...")
+            print(f"Writing {lang} to {res_filename} from sheet {sheet.title}...")
             tree.write(str(res_filename), encoding="utf-8", xml_declaration=True, pretty_print=True)
 
         if args.ios_res:
             res_path = PurePath(args.ios_res).joinpath(f"{lang}.lproj")
             Path(res_path).mkdir(parents=True, exist_ok=True)
             res_filename = res_path.joinpath(f"Localizable.strings")
-            print(f"Writing {lang} to {res_filename}...")
+            print(f"Writing {lang} to {res_filename} from sheet {sheet.title}...")
 
             with open(res_filename, 'w' if s == 0 else 'a') as strings:
                 for j in range(1,len(texts)):
