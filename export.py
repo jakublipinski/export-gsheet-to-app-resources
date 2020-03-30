@@ -54,7 +54,7 @@ for s, sheet in enumerate(doc.worksheets()):
             with open(res_filename, 'w' if s == 0 else 'a') as strings:
                 for j in range(1,len(texts)):
                     strings.write(f'/* {comments[j]} */\n')
-                    strings.write(f'"{ids[j]}" = "{texts[j]}"\n')
+                    strings.write(f'"{ids[j]}" = "{texts[j]}";\n')
                     strings.write("\n")
 
 
